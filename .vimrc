@@ -1,4 +1,4 @@
-set nocompatible 
+set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -23,11 +23,14 @@ Plugin 'mxw/vim-jsx.git'
 Plugin 'morhetz/gruvbox'
 Plugin 'IN3D/vim-raml'
 Plugin 'mhinz/vim-startify'
+Plugin 'leafgarland/typescript-vim.git'
+Plugin 'moll/vim-node'
 
 call vundle#end()
 filetype plugin indent on
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 
-colors gruvbox 
+colors gruvbox
 set expandtab
 set tabstop=4
 set shiftwidth=4
@@ -37,7 +40,7 @@ set hidden
 filetype on
 filetype plugin on
 syntax on
-set mouse=nicr
+set mouse=nicrv
 
 map <F1> :bp<CR>
 map <F2> :bn<CR>
@@ -54,6 +57,8 @@ nmap <Leader>p :r ~/.vbuf<CR>
 map <Leader>l oconsole.log("BURR", );<Esc>hi
 map <Leader>v :e ~/.vimrc<CR>
 map K i<CR><Esc>
+
+set tags=./tags;
 
 set wildmenu
 set wcm=<Tab>
@@ -88,6 +93,12 @@ endfunction
 set foldmethod=manual
 autocmd BufWinLeave *.* mkview!
 autocmd BufWinEnter *.* silent loadview
+
+au InsertEnter * set cursorline
+au InsertLeave * set nocursorline
+
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
 
 set t_Co=256
 let g:jsx_ext_required = 0
