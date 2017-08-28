@@ -8,7 +8,6 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'scrooloose/nerdcommenter.git'
 Plugin 'gregsexton/matchtag.git'
-Plugin 'jimmyhchan/dustjs.vim.git'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/syntastic.git'
@@ -102,3 +101,15 @@ match ExtraWhitespace /\s\+$/
 
 set t_Co=256
 let g:jsx_ext_required = 0
+
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|\.git$'
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_extensions = ['tag']
+
+" npm install -g eslint
+" npm install -g babel-eslint
+" npm install -g eslint-plugin-react
+let g:syntastic_javascript_checkers = ['eslint']
+
+" mkdir ~/.vim/.swp/
+set directory=~/.vim/.swp//
