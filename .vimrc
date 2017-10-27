@@ -12,7 +12,8 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/syntastic.git'
 Plugin 'kien/ctrlp.vim.git'
-Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround.git'
 Plugin 'elzr/vim-json'
 Plugin 'mattn/emmet-vim.git'
 Plugin 'mileszs/ack.vim'
@@ -24,6 +25,7 @@ Plugin 'IN3D/vim-raml'
 Plugin 'mhinz/vim-startify'
 Plugin 'leafgarland/typescript-vim.git'
 Plugin 'moll/vim-node'
+Plugin 'airblade/vim-gitgutter'
 
 call vundle#end()
 filetype plugin indent on
@@ -49,12 +51,14 @@ set pastetoggle=<F4>
 set showmode
 map <F12> :NERDTreeToggle<CR>
 map <Leader>q :Bclose<CR>
+let g:NERDTreeChDirMode=2
 
 vmap <Leader>y :w! ~/.vbuf<CR>
 nmap <Leader>y :.w! ~/.vbuf<CR>
 nmap <Leader>p :r ~/.vbuf<CR>
 map <Leader>l oconsole.log("BURR", );<Esc>hi
 map <Leader>v :e ~/.vimrc<CR>
+map <Leader>g :GitGutterToggle<CR>
 map K i<CR><Esc>
 
 set tags=./tags;
@@ -113,3 +117,9 @@ let g:syntastic_javascript_checkers = ['eslint']
 
 " mkdir ~/.vim/.swp/
 set directory=~/.vim/.swp//
+
+if executable('ag')
+      let g:ackprg = 'ag --vimgrep'
+endif
+
+set fillchars+=vert:\ 
