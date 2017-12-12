@@ -22,10 +22,11 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx.git'
 Plugin 'morhetz/gruvbox'
 Plugin 'IN3D/vim-raml'
-Plugin 'mhinz/vim-startify'
 Plugin 'leafgarland/typescript-vim.git'
 Plugin 'moll/vim-node'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'Shougo/vimproc.vim'
+Plugin 'Quramy/tsuquyomi'
 
 call vundle#end()
 filetype plugin indent on
@@ -50,15 +51,16 @@ nnoremap <F4> :set invpaste paste?<CR>
 set pastetoggle=<F4>
 set showmode
 map <F12> :NERDTreeToggle<CR>
-map <Leader>q :Bclose<CR>
 let g:NERDTreeChDirMode=2
 
+map <Leader>q :Bclose<CR>
 vmap <Leader>y :w! ~/.vbuf<CR>
 nmap <Leader>y :.w! ~/.vbuf<CR>
 nmap <Leader>p :r ~/.vbuf<CR>
 map <Leader>l oconsole.log("BURR", );<Esc>hi
 map <Leader>v :e ~/.vimrc<CR>
 map <Leader>g :GitGutterToggle<CR>
+map <Leader>s :w<CR>
 map K i<CR><Esc>
 
 set tags=./tags;
@@ -114,6 +116,8 @@ let g:ctrlp_extensions = ['tag']
 " npm install -g babel-eslint
 " npm install -g eslint-plugin-react
 let g:syntastic_javascript_checkers = ['eslint']
+let g:tsuquyomi_disable_quickfix = 1
+let g:syntastic_typescript_checkers = ['tsuquyomi']
 
 " mkdir ~/.vim/.swp/
 set directory=~/.vim/.swp//
