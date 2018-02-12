@@ -61,6 +61,7 @@ map <Leader>l oconsole.log("BURR", );<Esc>hi
 map <Leader>v :e ~/.vimrc<CR>
 map <Leader>g :GitGutterToggle<CR>
 map <Leader>s :w<CR>
+imap <Leader>c <c-x><c-o>
 map K i<CR><Esc>
 
 set tags=./tags;
@@ -126,4 +127,4 @@ if executable('ag')
       let g:ackprg = 'ag --vimgrep'
 endif
 
-set fillchars+=vert:\ 
+set fillchars=vert:\│
