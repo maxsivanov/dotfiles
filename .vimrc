@@ -10,7 +10,6 @@ Plugin 'scrooloose/nerdcommenter.git'
 Plugin 'gregsexton/matchtag.git'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'scrooloose/syntastic.git'
 Plugin 'kien/ctrlp.vim.git'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround.git'
@@ -27,6 +26,7 @@ Plugin 'moll/vim-node'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Quramy/tsuquyomi'
+Plugin 'w0rp/ale'
 
 call vundle#end()
 filetype plugin indent on
@@ -39,6 +39,7 @@ set shiftwidth=4
 set rtp+=~/.fzf
 set autoindent
 set hidden
+set incsearch
 filetype on
 filetype plugin on
 syntax on
@@ -63,6 +64,7 @@ map <Leader>g :GitGutterToggle<CR>
 map <Leader>s :w<CR>
 imap <Leader>c <c-x><c-o>
 map K i<CR><Esc>
+nnoremap <F5> :Ack<space>
 
 set tags=./tags;
 
@@ -116,9 +118,9 @@ let g:ctrlp_extensions = ['tag']
 " npm install -g eslint
 " npm install -g babel-eslint
 " npm install -g eslint-plugin-react
-let g:syntastic_javascript_checkers = ['eslint']
 let g:tsuquyomi_disable_quickfix = 1
-let g:syntastic_typescript_checkers = ['tsuquyomi']
+let g:airline#extensions#ale#enabled = 1
+let g:ale_lint_on_text_changed = 'never'
 
 " mkdir ~/.vim/.swp/
 set directory=~/.vim/.swp//
@@ -128,3 +130,4 @@ if executable('ag')
 endif
 
 set fillchars=vert:\│
+
