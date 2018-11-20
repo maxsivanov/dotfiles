@@ -8,8 +8,6 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'scrooloose/nerdcommenter.git'
 Plugin 'gregsexton/matchtag.git'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
 Plugin 'kien/ctrlp.vim.git'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround.git'
@@ -21,11 +19,11 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx.git'
 Plugin 'morhetz/gruvbox'
 Plugin 'IN3D/vim-raml'
+Plugin 'easymotion/vim-easymotion'
 Plugin 'leafgarland/typescript-vim.git'
 Plugin 'moll/vim-node'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Shougo/vimproc.vim'
-Plugin 'Quramy/tsuquyomi'
 Plugin 'w0rp/ale'
 
 call vundle#end()
@@ -118,16 +116,18 @@ let g:ctrlp_extensions = ['tag']
 " npm install -g eslint
 " npm install -g babel-eslint
 " npm install -g eslint-plugin-react
-let g:tsuquyomi_disable_quickfix = 1
-let g:airline#extensions#ale#enabled = 1
 let g:ale_lint_on_text_changed = 'never'
 
 " mkdir ~/.vim/.swp/
 set directory=~/.vim/.swp//
 
 if executable('ag')
-      let g:ackprg = 'ag --vimgrep'
+      let g:ackprg = 'ag --vimgrep -W 100'
 endif
 
 set fillchars=vert:\│
+nmap s <Plug>(easymotion-s2)
+
+set list!
+set listchars=tab:▶\ ,trail:·,extends:\#,nbsp:.
 
