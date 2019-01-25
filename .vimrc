@@ -1,5 +1,6 @@
 set nocompatible
 filetype off
+let g:ale_completion_enabled = 1
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -21,16 +22,20 @@ Plugin 'morhetz/gruvbox'
 Plugin 'IN3D/vim-raml'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'leafgarland/typescript-vim.git'
+Plugin 'ianks/vim-tsx'
 Plugin 'moll/vim-node'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'w0rp/ale'
+Plugin 'tpope/vim-repeat'
+Bundle 'sonph/onehalf', {'rtp': 'vim/'}
 
 call vundle#end()
 filetype plugin indent on
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 
-colors gruvbox
+"colors gruvbox
+colorscheme onehalfdark
 set expandtab
 set tabstop=4
 set shiftwidth=4
@@ -59,7 +64,9 @@ nmap <Leader>p :r ~/.vbuf<CR>
 map <Leader>l oconsole.log("BURR", );<Esc>hi
 map <Leader>v :e ~/.vimrc<CR>
 map <Leader>g :GitGutterToggle<CR>
-map <Leader>s :w<CR>
+map <Leader>d :ALEGoToDefinition<CR>
+map <Leader>r :ALEFindReferences<CR>
+map <Leader>n :set rnu!<CR>
 imap <Leader>c <c-x><c-o>
 map K i<CR><Esc>
 nnoremap <F5> :Ack<space>
