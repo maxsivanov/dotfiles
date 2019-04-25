@@ -9,7 +9,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'scrooloose/nerdcommenter.git'
 Plugin 'gregsexton/matchtag.git'
-Plugin 'kien/ctrlp.vim.git'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround.git'
 Plugin 'elzr/vim-json'
@@ -29,13 +29,15 @@ Plugin 'Shougo/vimproc.vim'
 Plugin 'w0rp/ale'
 Plugin 'tpope/vim-repeat'
 Bundle 'sonph/onehalf', {'rtp': 'vim/'}
+Plugin 'editorconfig/editorconfig-vim'
 
 call vundle#end()
 filetype plugin indent on
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 
-"colors gruvbox
 colorscheme onehalfdark
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+
 set expandtab
 set tabstop=4
 set shiftwidth=4
@@ -92,17 +94,6 @@ set iminsert=0
 set imsearch=0
 highlight lCursor guifg=NONE guibg=Cyan
 
-function! s:buflist()
-  redir => ls
-  silent ls
-  redir END
-  return split(ls, '\n')
-endfunction
-
-function! s:bufopen(e)
-  execute 'buffer' matchstr(a:e, '^[ 0-9]*')
-endfunction
-
 set foldmethod=manual
 autocmd BufWinLeave *.* mkview!
 autocmd BufWinEnter *.* silent loadview
@@ -137,4 +128,3 @@ nmap s <Plug>(easymotion-s2)
 
 set list!
 set listchars=tab:▶\ ,trail:·,extends:\#,nbsp:.
-
